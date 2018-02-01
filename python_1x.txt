@@ -20,31 +20,28 @@ division is:4
 2)
 #greater in three numbers
 print("Enter the first Number")
-firstNumber = input()
+num1 = int(input())
 print("Enter the second Number")
-secondNumber = input()
+num2 = int(input())
 print("Enter the third Number")
-thirdNumber = input()
-if firstNumber > secondNumber:
-    if firstNumber > thirdNumber:
-        print("FirstNumber is greater")
-    else:
-        print("thirdNumber is great")
-        
-elif firstNumber < secondNumber:
-        if secondNumber > thirdNumber:
-           print("second Number is great")
-        else :
-            print("ThirdNumber is great")
-    
-OUTPUT :
+num3 = int(input())
+if (num1 >= num2) and (num1 >= num3):
+   largest = num1
+elif (num2 >= num1) and (num2 >= num3):
+   largest = num2
+else:
+   largest = num3
+print("largest num is:: %d" %(largest))
+
+output::
+
 Enter the first Number
-3
+7
 Enter the second Number
-6
+7
 Enter the third Number
-9
-ThirdNumber is great
+2
+largest num is:: 7
 
 
 ============================================================================================================================
@@ -66,18 +63,39 @@ Given Number is Even
 ============================================================================================================================
 4)
 #Prime Number
+def prime(num):
+	if num > 1:  
+   		for i in range(2,num):  
+       			if (num % i) == 0:  
+           			print(num,"is not a prime number")  
+           			break  
+   		else:  
+       			print(num,"is a prime number")  
+         
+	else:  
+   		print(num,"is not a prime number")  
+
+
+
 print("Enter the Number")
+
 Number = int(input())
-if Number > 1:
-    for i in range(2,Number):
-        if Number%i == 0:
-            print("Given nuber is not a prime number")
-            break
-        else:
-            print("Given Number is a prime number")
-            break
-OUTPUT : 11
-Given Number is a prime number
+
+prime(Number)
+
+----------
+
+output:::
+C:\Users\Harika\Desktop>python prime.py
+Enter the Number
+9
+9 is not a prime number
+
+C:\Users\Harika\Desktop>python prime.py
+Enter the Number
+5
+5 is a prime number
+
 
 
 ============================================================================================================================
@@ -101,15 +119,19 @@ The argument at position 4 is kanna
 
 # b) Find the biggest of three numbers, where three numbers are passed as command line arguments.
 import sys
-if((sys.argv[0]>sys.argv[1]) and (sys.argv[0]>sys.argv[2])):
-	print("The biggest number is %s" %sys.argv[0])
-if((sys.argv[1]>sys.argv[0]) and (sys.argv[1]>sys.argv[2])):
-	print("The biggest number is %s" %sys.argv[1])
-if((sys.argv[2]>sys.argv[0]) and (sys.argv[2]>sys.argv[1])):
-	print("The biggest number is %s" %sys.argv[2])
+if((sys.argv[1]>=sys.argv[2]) and (sys.argv[1]>=sys.argv[2])):
+	largest=sys.argv[1]
+if((sys.argv[2]>=sys.argv[1]) and (sys.argv[2]>=sys.argv[3])):
+	largest=sys.argv[2]
+	
+if((sys.argv[3]>=sys.argv[1]) and (sys.argv[3]>=sys.argv[2])):
+	largest=sys.argv[3]
+print("The biggest number is %s" %largest)
 
-C:\Users\Harika\Desktop>python 2.py 4 6 2
-The biggest number is 6
+-----------
+output:::
+C:\Users\Harika\Desktop>python prime.py 8 8 2
+The biggest number is 8
 
 ==============================================================================
 
@@ -309,30 +331,18 @@ sum = 0
 countgrt = 0
 counteql = 0
 countlst = 0
-NumberList = []
-print("Enter the value")
-for i in range (0,10):
-
-    NumberList.append(int(input()))
+NumberList = [8,2,5,1,3,9,5,3,0,1]
 
 for number in NumberList:
     sum = sum + number
-
 average = float(sum/10)
-print(average)
+print("average= %f" %average)
 for number in NumberList:
      if number < average:
-        print("No lessthan average")
-        print(number)
         countlst = countlst+1
-
      if number >= average:
-        print("No.equal to average")
-        print (number)
         countgrt=countgrt+1
      if number == average:
-        print("No. greater than average")
-        print(number)
         counteql=counteql+1
 print("No of numbers lessthan average :")
 print(countlst)
@@ -340,52 +350,25 @@ print("No of numbers equal to average :")
 print(counteql)
 print("No of numbers greaterthan average :")
 print(countgrt)
-      
+
+----------------
 OUTPUT :
-Enter the value
-10
-20
-30
-40
-50
-80
-70
-90
-510
-210
-111.0
-No lessthan average
-10
-No lessthan average
-20
-No lessthan average
-30
-No lessthan average
-40
-No lessthan average
-50
-No lessthan average
-80
-No lessthan average
-70
-No lessthan average
-90
-No.equal to average
-510
-No.equal to average
-210
+average= 3.700000
 No of numbers lessthan average :
-8
+6
 No of numbers equal to average :
 0
 No of numbers greaterthan average :
-2
+4
 
 ============================================================================================================================
 
 
 13)# Decision making (IF .. Else structure)
-
+Write a program to find the biggest of 4 numbers.
+   a)  Read 4 numbers from user using Input statement.
+   b) extend the above program to find the biggest of 5 numbers.
+a)
 print("Enter the value of A :")
 A =int(input())
 print("Enter the value of B :")
@@ -437,7 +420,45 @@ Enter the value of C :
 Enter the value of D :
  4
 c is big
+---------------------------
 
+b)
+
+print("Enter the value of A :")
+A =int(input())
+print("Enter the value of B :")
+B=int(input())
+print("Enter the value of C :")
+C=int(input())
+print("Enter the value of D :")
+D=int(input())
+print("Enter the value of E :")
+E=int(input())
+large=A
+if B>large:
+	large=B
+if C>large:
+	large=C
+if D>large:
+	large=D
+if E>large:
+	large=E
+print( "largest number is =",large)
+
+------------
+output:::
+
+Enter the value of A :
+2
+Enter the value of B :
+6
+Enter the value of C :
+3
+Enter the value of D :
+1
+Enter the value of E :
+4
+largest number is = 6
 ============================================================================================================================
 14)
 Python List functions and Methods:
@@ -509,7 +530,6 @@ for i in Employeeid:
   print Employeeid[::-1]
   break
 
-                                      ========= O/P =========
 output::
 
 enter the input::
@@ -519,36 +539,76 @@ false
 It's not exist
 [3, 2, 1, 0]
  
-===========================================================================================================================
-20)
-#Looping structures - fibonacci series
-number1=0
-number2=1
-terms=int(input())
-count=0
+=========================================================================================================================
+16)
+Write program to perform following:
+     i) Check whether given number is prime or not.
+    ii) Generate all the prime numbers between 1 to N where N is given number.
+
+I)
+
+def prime(num):
+	if num > 1:  
+   		for i in range(2,num):  
+       			if (num % i) == 0:  
+           			print(num,"is not a prime number")  
+           			break  
+   		else:  
+       			print(num,"is a prime number")  
+         
+	else:  
+   		print(num,"is not a prime number")  
 
 
-while(count<terms):
-  print number1
-  sum=number1+number2
-  number1=number2
-  number2=sum
-  
-  
-  count=count+1
 
-                                    =================O/P=========================
-output:
-0
-1
-1
+print("Enter the Number")
+
+Number = int(input())
+
+prime(Number)
+
+----------
+
+output:::
+C:\Users\Harika\Desktop>python prime.py
+Enter the Number
+9
+9 is not a prime number
+
+C:\Users\Harika\Desktop>python prime.py
+Enter the Number
+5
+5 is a prime number
+----------------------------
+II)
+
+def prime(number):
+	print("prime numbers")
+	if number > 1:  
+        	for num in range(2,number):
+            		count=0
+            		for j in range(2,num):
+                		if(num%j==0):
+                    			count=count+1
+            		if(count==0):
+                		print(num)
+                
+
+
+print("Enter the Number")
+
+Number = int(input())
+prime(Number)
+
+-----------
+output:::
+Enter the Number
+8
+prime numbers
 2
 3
 5
-8
-13
-21
-34
+7
 
 ===========================================================================================================================
 17)
@@ -680,3 +740,33 @@ Numbers are printed as given input
 
 
 ============================================================================================================================
+
+20)
+#Looping structures - fibonacci series
+number1=0
+number2=1
+terms=int(input())
+count=0
+
+
+while(count<terms):
+  print number1
+  sum=number1+number2
+  number1=number2
+  number2=sum
+  
+  
+  count=count+1
+
+                                    =================O/P=========================
+output:
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
